@@ -52,6 +52,7 @@ class Root extends Component {
     const {viewport, roads} = this.state;
 
     return (
+      <div>
       <MapGL
         {...viewport}
         mapStyle="mapbox://styles/mapbox/dark-v9"
@@ -62,6 +63,10 @@ class Root extends Component {
           strokeWidth={3}
           roads={roads} />
       </MapGL>
+        <div className='attribution'>
+        © <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>
+        </div>
+      </div>
     );
   }
 }

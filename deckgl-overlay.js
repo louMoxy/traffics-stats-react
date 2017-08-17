@@ -49,9 +49,9 @@ export default class DeckGLOverlay extends Component {
     } else {
       // console.log(roads);
       trafficVolumeScale= d3.scaleLinear()
-        .domain([d3.min(roads, d=> d.properties['AADF-data-by-direction-major-roads_FdCar']),
-          d3.mean(roads, d=> d.properties['AADF-data-by-direction-major-roads_FdCar']),
-           d3.max(roads, d=> d.properties['AADF-data-by-direction-major-roads_FdCar'])])
+        .domain([d3.min(roads, d=> d.properties['AADF-data-by-direction-major-roads_FdHGV']),
+          d3.mean(roads, d=> d.properties['AADF-data-by-direction-major-roads_FdHGV']),
+           d3.max(roads, d=> d.properties['AADF-data-by-direction-major-roads_FdHGV'])])
         .interpolate(d3.interpolateRgb)
         .range([d3.rgb('#008000'), d3.rgb('#a46a00'), d3.rgb('#ff0000')]);
     }
@@ -63,7 +63,7 @@ export default class DeckGLOverlay extends Component {
         widthMinPixels: 4,
         widthMaxPixels: 10,
         getPath: d => d.geometry.coordinates,
-        getColor: d =>  trafficVolumeScale(d.properties['AADF-data-by-direction-major-roads_FdCar']).replace('rgb(', '').replace(')', '').split(',')
+        getColor: d =>  trafficVolumeScale(d.properties['AADF-data-by-direction-major-roads_FdHGV']).replace('rgb(', '').replace(')', '').split(',')
         // getWidth: d => trafficVolumeScale(d.properties['AADF-data-by-direction-major-roads_FdCar'])
       })
     ];
